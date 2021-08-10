@@ -1,11 +1,7 @@
-variable "cluster_oidc_provider" {
-  type        = string
-  description = "OpenID Connect (OIDC) Identity Provider associated with the Kubernetes cluster"
-}
-
 variable "k8s_namespace" {
   type        = string
   description = "Kubernetes namespace on which to install Chartmuseum"
+  default     = "flux-system"
 }
 
 variable "k8s_sa_name" {
@@ -23,6 +19,12 @@ variable "s3_object_key_prefix" {
   type        = string
   description = "Prefix added to S3 object names"
   default     = null
+}
+
+variable "iam_role_arn" {
+  type        = string
+  description = "ARN of the IAM role used by the Chartmuseum service account"
+  default     = ""
 }
 
 variable "chart_version_chartmuseum" {
