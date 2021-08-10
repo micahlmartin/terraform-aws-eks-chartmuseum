@@ -45,7 +45,7 @@ module "chartmuseum_iam" {
 | Name | Description |
 |------|-------------|
 | <a name="output_policy"></a> [policy](#output\_policy) | Managed IAM policies for access to Chartmuseum storage |
-| <a name="output_role"></a> [role](#output\_role) | IAM role for Chartmuseum's Kubernetes service account |
+| <a name="output_role"></a> [role](#output\_role) | IAM role for the Kubernetes service account |
 
 ## Providers
 

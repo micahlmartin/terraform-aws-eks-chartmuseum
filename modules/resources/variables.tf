@@ -1,7 +1,7 @@
 variable "k8s_namespace" {
   type        = string
   description = "Kubernetes namespace on which to install Chartmuseum"
-  default     = "flux-system"
+  default     = "flux-system" ## <-- usually
 }
 
 variable "k8s_sa_name" {
@@ -95,26 +95,26 @@ variable "helm_keyring" {
 
 variable "helm_reuse_values" {
   type        = bool
-  description = ""
+  description = "When upgrading, reuse the last release's values and merge any overrides ? If 'reset_values' is specified, this is ignored"
   default     = false
 }
 
 variable "helm_reset_values" {
   type        = bool
-  description = ""
+  description = "When upgrading, reset the values to the ones built into the chart ?"
   default     = false
 }
 
 variable "helm_force_update" {
   type        = bool
-  description = ""
+  description = "Force resource update through delete/recreate if needed ?"
   default     = false
 }
 
 variable "helm_create_namespace" {
   type        = bool
   description = "Create the namespace if it does not yet exist ?"
-  default     = false
+  default     = true
 }
 
 variable "helm_replace" {
