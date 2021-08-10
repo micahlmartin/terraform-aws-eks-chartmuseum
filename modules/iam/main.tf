@@ -1,6 +1,9 @@
 /**
-* IAM resources
+* Deploys IAM resources for Chartmuseum:
+* - Chartmuseum IAM role for the Kubernetes service account
+* - managed IAM policies for access to Charmuseum storage
 */
+
 terraform {
   required_version = ">= 1.0.0"
 

@@ -32,3 +32,45 @@ variable "chart_version_chartmuseum" {
   description = "Chart version"
   default     = null
 }
+
+variable "helm_release_name" {
+  type        = string
+  description = "Release name"
+  default     = "chartmuseum"
+}
+
+variable "helm_max_history" {
+  type        = number
+  description = "Maximum number of release versions stored per release; `0` means no limit"
+  default     = 3
+}
+
+variable "helm_timeout_seconds" {
+  type        = number
+  description = "Time in seconds to wait for any individual kubernetes operation"
+  default     = 300
+}
+
+variable "helm_recreate_pods" {
+  type    = bool
+  description = "Perform pods restart during upgrade/rollback ?"
+  default = true
+}
+
+variable "helm_atomic_creation" {
+  type    = bool
+  description = "Purge resources on installation failure ? The wait flag will be set automatically if atomic is used"
+  default = true
+}
+
+variable "helm_cleanup_on_fail" {
+  type    = bool
+  description = "Deletion new resources created in this upgrade if the upgrade fails ?"
+  default = true
+}
+
+variable "helm_wait_for_completion" {
+  type    = bool
+  description = "Will wait until all resources are in a ready state before marking the release as successful ?"
+  default = true
+}

@@ -1,7 +1,9 @@
 # terraform-aws-eks-chartmuseum iam
 
 [//]: # (BEGIN_TF_DOCS)
-IAM resources
+Deploys IAM resources for Chartmuseum:
+- Chartmuseum IAM role for the Kubernetes service account
+- managed IAM policies for access to Charmuseum storage
 
 ## Usage
 
@@ -42,8 +44,8 @@ module "chartmuseum_iam" {
 
 | Name | Description |
 |------|-------------|
-| <a name="output_policy"></a> [policy](#output\_policy) | n/a |
-| <a name="output_role"></a> [role](#output\_role) | n/a |
+| <a name="output_policy"></a> [policy](#output\_policy) | Managed IAM policies for access to Chartmuseum storage |
+| <a name="output_role"></a> [role](#output\_role) | IAM role for Chartmuseum's Kubernetes service account |
 
 ## Providers
 

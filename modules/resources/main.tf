@@ -1,6 +1,7 @@
 /**
-* Helm resources
+* Deploys the Chartmuseum Helm chart
 */
+
 terraform {
   required_version = ">= 1.0.0"
 
@@ -28,18 +29,18 @@ data "aws_region" "current" {}
 
 resource "helm_release" "chartmuseum" {
 
-  name       = "chartmuseum"
+  name       = var.helm_release_name
   namespace  = var.k8s_namespace
   repository = "https://chartmuseum.github.io/charts"
   chart      = "chartmuseum"
   version    = var.chart_version_chartmuseum
 
-  recreate_pods   = true
-  atomic          = true
-  cleanup_on_fail = true
-  wait            = true
-  timeout         = 900
-  max_history     = 2
+  recreate_pods   = var.helm_recreate_pods
+  atomic          = var.helm_atomic_creation
+  cleanup_on_fail = var.helm_cleanup_on_fail
+  wait            = var.helm_wait_for_completion
+  timeout         = var.helm_timeout_seconds
+  max_history     = var.helm_max_history
 
   values = [
     templatefile("${path.module}/helm-values/chartmuseum.yml.tpl", {

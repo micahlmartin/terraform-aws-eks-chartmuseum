@@ -42,7 +42,11 @@ module "chartmuseum" {
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_policy"></a> [policy](#output\_policy) | Managed IAM policies for access to Chartmuseum storage |
+| <a name="output_release"></a> [release](#output\_release) | Chartmuseum Helm release |
+| <a name="output_role"></a> [role](#output\_role) | IAM role for Chartmuseum's Kubernetes service account |
 
 ## Providers
 
