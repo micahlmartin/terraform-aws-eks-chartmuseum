@@ -30,6 +30,7 @@ module "iam" {
   cluster_oidc_provider = var.cluster_oidc_provider
   k8s_sa_name           = var.k8s_sa_name
   k8s_namespace         = var.k8s_namespace
+  iam_role_name         = var.iam_role_name
   s3_bucket_name        = var.s3_bucket_name
 }
 

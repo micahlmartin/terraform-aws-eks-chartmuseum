@@ -14,6 +14,12 @@ variable "k8s_sa_name" {
   default     = "chartmuseum"
 }
 
+variable "iam_role_name" {
+  type        = string
+  description = "IAM role name"
+  default     = "chartmuseum"
+}
+
 variable "s3_bucket_name" {
   type        = string
   description = "Name of S3 bucket for chart storage"

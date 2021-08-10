@@ -11,13 +11,12 @@ Example:
 module "chartmuseum" {
   source                    = "github.com/andreswebs/terraform-aws-eks-chartmuseum"
   cluster_oidc_provider     = var.eks_cluster_oidc_provider
-  s3_bucket_name            = var.chartmuseum_s3_bucket_name
-  s3_object_key_prefix      = "charts/"
   k8s_namespace             = "flux-system"
   iam_role_name             = "chartmuseum-${var.eks_cluster_id}"
+  s3_bucket_name            = var.chartmuseum_s3_bucket_name
+  s3_object_key_prefix      = "charts/"
   chart_version_chartmuseum = var.chart_version_chartmuseum
 }
-
 ```
 
 
@@ -45,6 +44,7 @@ module "chartmuseum" {
 | <a name="input_helm_verify"></a> [helm\_verify](#input\_helm\_verify) | Verify the package before installing it. Helm uses a provenance file to verify the integrity of the chart | `bool` | `false` | no |
 | <a name="input_helm_wait_for_completion"></a> [helm\_wait\_for\_completion](#input\_helm\_wait\_for\_completion) | Wait until all resources are in a ready state before marking the release as successful ? | `bool` | `true` | no |
 | <a name="input_helm_wait_for_jobs"></a> [helm\_wait\_for\_jobs](#input\_helm\_wait\_for\_jobs) | Wait until all Jobs have been completed before marking the release as successful ? | `bool` | `true` | no |
+| <a name="input_iam_role_name"></a> [iam\_role\_name](#input\_iam\_role\_name) | IAM role name | `string` | `"chartmuseum"` | no |
 | <a name="input_k8s_namespace"></a> [k8s\_namespace](#input\_k8s\_namespace) | Kubernetes namespace on which to install Chartmuseum | `string` | n/a | yes |
 | <a name="input_k8s_sa_name"></a> [k8s\_sa\_name](#input\_k8s\_sa\_name) | Name of the Kubernetes service account used by Chartmuseum | `string` | `"chartmuseum"` | no |
 | <a name="input_s3_bucket_name"></a> [s3\_bucket\_name](#input\_s3\_bucket\_name) | Name of S3 bucket for chart storage | `string` | n/a | yes |
