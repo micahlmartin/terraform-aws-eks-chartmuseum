@@ -6,6 +6,7 @@ variable "cluster_oidc_provider" {
 variable "k8s_namespace" {
   type        = string
   description = "Kubernetes namespace on which to install Chartmuseum"
+  default     = "flux-system"
 }
 
 variable "k8s_sa_name" {
