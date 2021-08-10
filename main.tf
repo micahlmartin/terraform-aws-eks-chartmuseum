@@ -1,8 +1,5 @@
 /**
-* # k8s-chartmuseum
-*
-* Deploys [chartmuseum](https://chartmuseum.com).
-*
+* Deploys [chartmuseum](https://chartmuseum.com) to AWS EKS.
 */
 
 terraform {

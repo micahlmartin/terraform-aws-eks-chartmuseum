@@ -1,9 +1,7 @@
 # terraform-aws-eks-chartmuseum
 
 [//]: # (BEGIN_TF_DOCS)
-# k8s-chartmuseum
-
-Deploys [chartmuseum](https://chartmuseum.com).
+Deploys [chartmuseum](https://chartmuseum.com) to AWS EKS.
 
 ## Usage
 
