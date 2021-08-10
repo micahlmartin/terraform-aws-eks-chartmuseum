@@ -52,25 +52,85 @@ variable "helm_timeout_seconds" {
 }
 
 variable "helm_recreate_pods" {
-  type    = bool
+  type        = bool
   description = "Perform pods restart during upgrade/rollback ?"
-  default = true
+  default     = true
 }
 
 variable "helm_atomic_creation" {
-  type    = bool
+  type        = bool
   description = "Purge resources on installation failure ? The wait flag will be set automatically if atomic is used"
-  default = true
+  default     = true
 }
 
 variable "helm_cleanup_on_fail" {
-  type    = bool
+  type        = bool
   description = "Deletion new resources created in this upgrade if the upgrade fails ?"
-  default = true
+  default     = true
 }
 
 variable "helm_wait_for_completion" {
-  type    = bool
-  description = "Will wait until all resources are in a ready state before marking the release as successful ?"
-  default = true
+  type        = bool
+  description = "Wait until all resources are in a ready state before marking the release as successful ?"
+  default     = true
+}
+
+variable "helm_wait_for_jobs" {
+  type        = bool
+  description = "Wait until all Jobs have been completed before marking the release as successful ?"
+  default     = true
+}
+
+variable "helm_verify" {
+  type        = bool
+  description = "Verify the package before installing it. Helm uses a provenance file to verify the integrity of the chart"
+  default     = false
+}
+
+variable "helm_keyring" {
+  type        = bool
+  description = "Location of public keys used for verification; used only if verify is true"
+  default     = ".gnupg/pubring.gpg"
+}
+
+variable "helm_reuse_values" {
+  type        = bool
+  description = ""
+  default     = false
+}
+
+variable "helm_reset_values" {
+  type        = bool
+  description = ""
+  default     = false
+}
+
+variable "helm_force_update" {
+  type        = bool
+  description = ""
+  default     = false
+}
+
+variable "helm_create_namespace" {
+  type        = bool
+  description = "Create the namespace if it does not yet exist ?"
+  default     = false
+}
+
+variable "helm_replace" {
+  type        = bool
+  description = "Re-use the given name, even if that name is already used; this is unsafe in production"
+  default     = false
+}
+
+variable "helm_dependency_update" {
+  type        = bool
+  description = "Run helm dependency update before installing the chart ?"
+  default     = false
+}
+
+variable "helm_skip_crds" {
+  type        = bool
+  description = "Skip installing CRDs ?"
+  default     = false
 }
