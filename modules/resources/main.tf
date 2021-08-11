@@ -22,7 +22,7 @@ terraform {
 
 data "aws_region" "current" {}
 
-resource "helm_release" "chartmuseum" {
+resource "helm_release" "this" {
 
   name       = var.helm_release_name
   namespace  = var.k8s_namespace
