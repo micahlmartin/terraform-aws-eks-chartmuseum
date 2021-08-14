@@ -83,28 +83,22 @@ locals {
 module "assume_role_policy" {
   count                 = var.create_iam_role ? 1 : 0
   source                = "andreswebs/eks-irsa-policy-document/aws"
+  version               = "1.0.0"
   k8s_sa_name           = var.k8s_sa_name
   k8s_sa_namespace      = var.k8s_namespace
   cluster_oidc_provider = var.cluster_oidc_provider
 }
 
-resource "aws_iam_role" "chartmuseum" {
+resource "aws_iam_role" "this" {
   count              = var.create_iam_role ? 1 : 0
   name               = local.iam_role_name
   assume_role_policy = module.assume_role_policy[0].json
 }
 
-# resource "aws_iam_role_policy_attachment" "storage_read" {
-#   count      = var.create_iam_role ? 1 : 0
-#   policy_arn = aws_iam_policy.storage_read.arn
-#   role       = aws_iam_role.chartmuseum[0].id
-# }
-
-
-resource "aws_iam_role_policy" "chartmuseum_permissions" {
+resource "aws_iam_role_policy" "this" {
   count  = var.create_iam_role ? 1 : 0
   name   = "chartmuseum-permissions"
-  role   = aws_iam_role.chartmuseum[0].id
+  role   = aws_iam_role.this[0].id
   policy = local.iam_role_permissions_document.json
 }
 
