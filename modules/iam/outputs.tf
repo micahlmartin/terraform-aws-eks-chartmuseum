@@ -8,5 +8,5 @@ output "policy" {
 
 output "role" {
   description = "IAM role for the Kubernetes service account"
-  value = var.create_iam_role ? aws_iam_role.chartmuseum[0] : null
+  value = var.create_iam_role ? aws_iam_role.this[0] : null
 }
