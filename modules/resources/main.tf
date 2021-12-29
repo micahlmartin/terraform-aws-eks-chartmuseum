@@ -2,24 +2,6 @@
 * Deploys the Chartmuseum Helm chart
 */
 
-terraform {
-  required_version = ">= 1.0.0"
-
-  required_providers {
-
-    aws = {
-      source  = "hashicorp/aws"
-      version = ">= 3.46.0"
-    }
-
-    helm = {
-      source  = "hashicorp/helm"
-      version = ">= 2.2.0"
-    }
-
-  }
-}
-
 data "aws_region" "current" {}
 
 resource "helm_release" "this" {
@@ -48,7 +30,7 @@ resource "helm_release" "this" {
   skip_crds         = var.helm_skip_crds
 
   values = [
-    templatefile("${path.module}/helm-values/chartmuseum.yml.tpl", {
+    templatefile("${path.module}/helm-values/chartmuseum.yml.tftpl", {
       aws_region           = data.aws_region.current.name
       s3_bucket_name       = var.s3_bucket_name
       s3_object_key_prefix = var.s3_object_key_prefix
