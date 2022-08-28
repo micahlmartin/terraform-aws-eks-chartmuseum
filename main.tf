@@ -23,7 +23,7 @@ module "resources" {
 
   helm_release_name        = var.helm_release_name
   helm_recreate_pods       = var.helm_recreate_pods
-  helm_atomic              = var.helm_atomic_creation
+  helm_atomic_creation     = var.helm_atomic_creation
   helm_cleanup_on_fail     = var.helm_cleanup_on_fail
   helm_wait_for_completion = var.helm_wait_for_completion
   helm_wait_for_jobs       = var.helm_wait_for_jobs
