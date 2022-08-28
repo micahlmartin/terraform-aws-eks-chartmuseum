@@ -11,6 +11,7 @@ output "role" {
 output "release" {
   description = "Helm release"
   value = module.resources.release
+  sensitive = true
 }
 
 output "namespace" {
