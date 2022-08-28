@@ -27,7 +27,7 @@ module "resources" {
   helm_cleanup_on_fail   = var.helm_cleanup_on_fail
   helm_wait              = var.helm_wait_for_completion
   helm_wait_for_jobs     = var.helm_wait_for_jobs
-  helm_timeout           = var.helm_timeout_seconds
+  helm_timeout_seconds           = var.helm_timeout_seconds
   helm_max_history       = var.helm_max_history
   helm_verify            = var.helm_verify
   helm_keyring           = var.helm_keyring
