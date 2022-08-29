@@ -36,7 +36,8 @@ resource "helm_release" "this" {
       s3_object_key_prefix = var.s3_object_key_prefix
       k8s_sa_name          = var.k8s_sa_name
       iam_role_arn         = var.iam_role_arn
-    })
+    }),
+    var.value_overrides
   ]
 
 }
