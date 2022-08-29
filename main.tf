@@ -38,5 +38,5 @@ module "resources" {
   helm_create_namespace    = var.helm_create_namespace
   helm_dependency_update   = var.helm_dependency_update
   helm_skip_crds           = var.helm_skip_crds
-
+  helm_values_overrides    = var.helm_values_overrides
 }

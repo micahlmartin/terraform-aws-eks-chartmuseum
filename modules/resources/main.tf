@@ -37,7 +37,7 @@ resource "helm_release" "this" {
       k8s_sa_name          = var.k8s_sa_name
       iam_role_arn         = var.iam_role_arn
     }),
-    var.value_overrides
+    yamlencode(var.helm_values_overrides),
   ]
 
 }

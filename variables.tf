@@ -139,3 +139,9 @@ variable "helm_skip_crds" {
   description = "Skip installing CRDs ?"
   default     = false
 }
+
+variable "helm_values_overrides" {
+  type        = map(any)
+  description = "Additional values overrides."
+  default     = {}
+}
