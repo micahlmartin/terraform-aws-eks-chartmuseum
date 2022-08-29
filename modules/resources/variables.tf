@@ -137,6 +137,6 @@ variable "helm_skip_crds" {
 
 variable "helm_values_overrides" {
   type        = string
-  description = "Additional values overrides."
+  description = "Additional yaml encoded values which will be passed to the Helm chart."
   default     = ""
 }
