@@ -141,7 +141,7 @@ variable "helm_skip_crds" {
 }
 
 variable "helm_values_overrides" {
-  type        = any
+  type        = object(any)
   description = "Additional values overrides."
   default     = {}
 }
