@@ -17,8 +17,7 @@ data "aws_iam_policy_document" "storage_read" {
   statement {
     sid = "AllowRead"
     actions = [
-      "s3:List*",
-      "s3:Get*"
+      "s3:*",
     ]
     resources = [
       local.s3_bucket_arn,
